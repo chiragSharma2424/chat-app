@@ -27,9 +27,17 @@ export const useAuthStore = create((set) => ({
             set({authUser:res.data});
             toast.success("Account created successfully");
         } catch(err) {
-            toast.error(err.message.data.message);
+            toast.error(err.response.data.message);
         }finally {
             set({isSigninUp: false})
+        }
+    },
+
+    logout: async() => {
+        try {
+            await axiosInstance().post('/auth/logout')
+        } catch(err) {
+            toast.error(err.response.data.message);
         }
     }
 }));
