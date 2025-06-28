@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { useAuthStore } from '../store/UserAuthStore';
-import { Link, MessageSquare, EyeOff } from 'lucide-react';
+import { Link, MessageSquare, EyeOff, Eye, Loader2, Lock, Mail } from 'lucide-react';
+import AuthImagePattern from '../component/AuthImagePattern';
 
 const LoginPage = () => {
-  const [showPassword, setPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: ""
